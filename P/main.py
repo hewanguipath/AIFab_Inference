@@ -4,6 +4,8 @@ import os
 import tensorflow as tf
 import numpy as np
 
+from io import BytesIO
+
 class Main:
     def __init__(self):
         pass
@@ -32,25 +34,27 @@ class Main:
 
         """The 1st Key of structured output is the output layer's name"""
         result = infer(tf.constant(x))[list(infer.structured_outputs.keys())[0]]
-        confidence = np.amax(result[0], axis=-1)
-
-        decoded = imagenet_labels[np.argmax(result[0], axis=-1)]
-        #print("Result after saving and loading: ", decoded)
-        print("labeling after saving and loading: ", np.asarray(result[0]))
         
+        #Top1Confidence = np.amax(result[0], axis=-1)
+        #Top1Label = imagenet_labels[np.argmax(result[0], axis=-1)]
+        
+        #print("Result after saving and loading: ", decoded)
+        #print("labeling after saving and loading: ", np.asarray(result[0]))
+        
+        dictOfRes = dict(zip(imagenet_labels, np.asarray(result[0])))
+        print (dictOfRes)
+    
         return json.dumps({
-                decoded: str(round(confidence*100))
+            k : str(round(v*100)) for k, v in dictOfRes.items()
             })
 
     def predict(self, file):
-        with open('dataset/tmp.jpg','wb') as f:
-            f.write(file) 
-        return self.inference('dataset/tmp.jpg', 'model')
+        return self.inference(BytesIO(file), 'model')
 
 if __name__ == "__main__":
     main = Main()
     
-    with open("c:\\tmp\\o.jpeg", "rb") as image:
+    with open("c:\\tmp\\images.jpg", "rb") as image:
         f = image.read()
         b = bytearray(f)
         
