@@ -11,10 +11,6 @@ class Main:
         pass
     
     def inference (self, file, model_path, labels_path=''):
-        physical_devices = tf.config.experimental.list_physical_devices('GPU')
-        if physical_devices:
-            tf.config.experimental.set_memory_growth(physical_devices[0], True)
-
         img = tf.keras.preprocessing.image.load_img(file, target_size=[224, 224])
 
         x = tf.keras.preprocessing.image.img_to_array(img)
@@ -34,12 +30,6 @@ class Main:
 
         """The 1st Key of structured output is the output layer's name"""
         result = infer(tf.constant(x))[list(infer.structured_outputs.keys())[0]]
-        
-        #Top1Confidence = np.amax(result[0], axis=-1)
-        #Top1Label = imagenet_labels[np.argmax(result[0], axis=-1)]
-        
-        #print("Result after saving and loading: ", decoded)
-        #print("labeling after saving and loading: ", np.asarray(result[0]))
         
         dictOfRes = dict(zip(imagenet_labels, np.asarray(result[0])))
         print (dictOfRes)
