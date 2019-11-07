@@ -2,8 +2,8 @@
 
 pre-condition: you have to have a orch tenant with AI Fab
 
-1. Zip the P folder, which contains the trained model, and upload it to AI Fab as ML package
-
+1. Zip the P folder, which contains the transfer-learning model with flowers, and upload it to AI Fab as ML package
+   
 2. Create a ML skill in AI Fab, choose "file" as input type, takes ~3min to finish deploy
 
 3. Connect the robot to the Orch with AI Fab you had just upload the package.
