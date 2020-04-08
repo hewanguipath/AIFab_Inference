@@ -3,9 +3,9 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.MLServices.Activities": "[1.0.0-beta.598954]",
-    "UiPath.System.Activities": "[19.8.0]",
-    "UiPath.UIAutomation.Activities": "[19.8.0-ce]",
+    "UiPath.MLServices.Activities": "[1.0.1]",
+    "UiPath.System.Activities": "[19.10.1]",
+    "UiPath.UIAutomation.Activities": "[19.11.0]",
     "UiPath.WebAPI.Activities": "[1.4.4]"
   },
   "webServices": [],
