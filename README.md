@@ -1,10 +1,10 @@
 # AIFab_Inference
 This is a demo code for using AI fabric in UiPath orchestrator.
 This demo contains:
-- a pre-trained model with google flower dataset
-- a script to call the model, following AI fab template 
-- a simple workflow call the AI fab function
-- a retrain script allows user to generate their own model
+- A pre-trained model with google flower dataset
+- A python script to call the model, following AI fab template 
+- A simple workflow call the AI fab function
+- A retrain script allows user to generate their own model
 
 ## Pre-request: 
 You have to have a orch tenant with AI Fab
