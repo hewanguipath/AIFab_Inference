@@ -11,4 +11,4 @@ pre-condition: you have to have a orch tenant with AI Fab
 4. Run the workflow, Select a image file, and wait 5-10 sec, will get the result in json
 
 # License
-This project is under Apache License, since the retrain.py is based on the demo of Google Tensorflow hub
+This project is under [Apache License](http://www.apache.org/licenses/LICENSE-2.0), since the retrain.py is based on the demo of Google Tensorflow hub
